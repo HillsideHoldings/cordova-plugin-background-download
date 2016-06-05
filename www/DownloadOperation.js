@@ -33,7 +33,7 @@ var DownloadOperation = function (uri, resultFile) {
     if (uri == null || resultFile == null) {
         throw new Error("missing or invalid argument");
     }
-    
+
     this.uri = uri;
     this.resultFile = resultFile;
 };
@@ -47,9 +47,9 @@ DownloadOperation.prototype.startAsync = function() {
         me = this,
         successCallback = function(result) {
 
-            // success callback is used to both report operation progress and 
+            // success callback is used to both report operation progress and
             // as operation completeness handler
-            
+
             if (result && typeof result.progress != 'undefined') {
                 deferral.notify(result.progress);
             } else {
@@ -76,6 +76,24 @@ DownloadOperation.prototype.startAsync = function() {
 DownloadOperation.prototype.stop = function() {
     // TODO return promise
     exec(null, null, "BackgroundDownload", "stop", [this.uri]);
+
+};
+
+/**
+ * Pauses a download operation.
+ */
+DownloadOperation.prototype.pause = function() {
+    // TODO return promise
+    exec(null, null, "BackgroundDownload", "pause", [this.uri]);
+
+};
+
+/**
+ * Resumes a download operation.
+ */
+DownloadOperation.prototype.resume = function() {
+    // TODO return promise
+    exec(null, null, "BackgroundDownload", "resume", [this.uri]);
 
 };
 
