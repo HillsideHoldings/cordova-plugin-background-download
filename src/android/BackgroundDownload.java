@@ -172,7 +172,7 @@ public class BackgroundDownload extends CordovaPlugin {
 
             DownloadManager mgr = (DownloadManager) this.cordova.getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
             DownloadManager.Request request = new DownloadManager.Request(source);
-            request.setTitle("org.apache.cordova.backgroundDownload plugin");
+            request.setTitle("Mixergy app download");
             request.setVisibleInDownloadsUi(false);
 
             // hide notification. Not compatible with current android api.
